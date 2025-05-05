@@ -1,16 +1,24 @@
 import { useEffect, useState } from "react";
-import Tarea from "../components/Tarea"; // Lo crearemos después
+import Tarea from "../components/Tarea";
 
 const ListaTareas = () => {
   const [tareas, setTareas] = useState([]);
 
-  useEffect(() => {
-    // Trae las tareas desde el backend
+  const cargarTareas = () => {
     fetch("http://localhost:3000/api/tasks")
       .then(res => res.json())
       .then(data => setTareas(data))
       .catch(err => console.error("Error al obtener tareas:", err));
+  };
+
+  useEffect(() => {
+    cargarTareas();
   }, []);
+
+  const eliminarTarea = (id) => {
+    // Filtra la tarea eliminada del estado
+    setTareas(prev => prev.filter(tarea => tarea.id !== id));
+  };
 
   return (
     <div>
@@ -19,7 +27,7 @@ const ListaTareas = () => {
         <p>No hay tareas disponibles.</p>
       ) : (
         tareas.map(tarea => (
-          <Tarea key={tarea.id} tarea={tarea} />
+          <Tarea key={tarea.id} tarea={tarea} onDelete={eliminarTarea} />
         ))
       )}
     </div>

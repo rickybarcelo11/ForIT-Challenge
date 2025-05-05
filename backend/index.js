@@ -84,3 +84,15 @@ app.put('/api/tasks/:id', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+
+app.delete('/api/tasks/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = tareas.findIndex(t => t.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({ error: "Tarea no encontrada" });
+  }
+
+  const tareaEliminada = tareas.splice(index, 1)[0];
+  res.status(200).json(tareaEliminada);
+});
