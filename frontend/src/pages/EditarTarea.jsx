@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import FormularioTarea from "../components/FormularioTarea";
 
 const EditarTarea = () => {
-  const { id } = useParams(); // Obtenemos el id desde la URL
+  const { id } = useParams();
   const navegar = useNavigate();
 
   const [titulo, setTitulo] = useState("");
   const [completada, setCompletada] = useState(false);
   const [cargando, setCargando] = useState(true);
 
-  // Traemos los datos de la tarea al cargar la página
   useEffect(() => {
     fetch(`http://localhost:3000/api/tasks/${id}`)
       .then(res => res.json())
@@ -47,33 +47,14 @@ const EditarTarea = () => {
   if (cargando) return <p>Cargando tarea...</p>;
 
   return (
-    <div>
-      <h2>Editar tarea</h2>
-      <form onSubmit={manejarEnvio}>
-        <div>
-          <label>Título:</label><br />
-          <input
-            type="text"
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
-            required
-          />
-        </div>
-
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              checked={completada}
-              onChange={(e) => setCompletada(e.target.checked)}
-            />
-            ¿Está completada?
-          </label>
-        </div>
-
-        <button type="submit">Actualizar tarea</button>
-      </form>
-    </div>
+    <FormularioTarea
+      titulo={titulo}
+      setTitulo={setTitulo}
+      completada={completada}
+      setCompletada={setCompletada}
+      onSubmit={manejarEnvio}
+      modo="editar"
+    />
   );
 };
 

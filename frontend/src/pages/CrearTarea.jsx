@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import FormularioTarea from "../components/FormularioTarea";
 
 const CrearTarea = () => {
   const [titulo, setTitulo] = useState("");
@@ -22,7 +23,7 @@ const CrearTarea = () => {
       });
 
       if (respuesta.ok) {
-        navegar("/"); // Redirige al inicio después de crear
+        navegar("/");
       } else {
         alert("Error al crear la tarea.");
       }
@@ -32,33 +33,14 @@ const CrearTarea = () => {
   };
 
   return (
-    <div>
-      <h2>Crear nueva tarea</h2>
-      <form onSubmit={manejarEnvio}>
-        <div>
-          <label>Título:</label><br />
-          <input
-            type="text"
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
-            required
-          />
-        </div>
-
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              checked={completada}
-              onChange={(e) => setCompletada(e.target.checked)}
-            />
-            ¿Está completada?
-          </label>
-        </div>
-
-        <button type="submit">Guardar tarea</button>
-      </form>
-    </div>
+    <FormularioTarea
+      titulo={titulo}
+      setTitulo={setTitulo}
+      completada={completada}
+      setCompletada={setCompletada}
+      onSubmit={manejarEnvio}
+      modo="crear"
+    />
   );
 };
 
