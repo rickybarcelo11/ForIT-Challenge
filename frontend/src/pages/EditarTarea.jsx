@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import FormularioTarea from "../components/FormularioTarea";
+import BotonVolver from "../components/BotonVolver"; 
+
 
 const EditarTarea = () => {
   const { id } = useParams();
@@ -47,14 +49,17 @@ const EditarTarea = () => {
   if (cargando) return <p>Cargando tarea...</p>;
 
   return (
-    <FormularioTarea
-      titulo={titulo}
-      setTitulo={setTitulo}
-      completada={completada}
-      setCompletada={setCompletada}
-      onSubmit={manejarEnvio}
-      modo="editar"
-    />
+    <div style={{ textAlign: "center" }}>
+      <FormularioTarea
+        titulo={titulo}
+        setTitulo={setTitulo}
+        completada={completada}
+        setCompletada={setCompletada}
+        onSubmit={manejarEnvio}
+        modo="crear"
+      />
+      <BotonVolver />
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormularioTarea from "../components/FormularioTarea";
+import BotonVolver from "../components/BotonVolver";
 
 const CrearTarea = () => {
   const [titulo, setTitulo] = useState("");
@@ -33,14 +34,17 @@ const CrearTarea = () => {
   };
 
   return (
-    <FormularioTarea
-      titulo={titulo}
-      setTitulo={setTitulo}
-      completada={completada}
-      setCompletada={setCompletada}
-      onSubmit={manejarEnvio}
-      modo="crear"
-    />
+    <div style={{ textAlign: "center" }}>
+      <FormularioTarea
+        titulo={titulo}
+        setTitulo={setTitulo}
+        completada={completada}
+        setCompletada={setCompletada}
+        onSubmit={manejarEnvio}
+        modo="crear"
+      />
+      <BotonVolver />
+    </div>
   );
 };
 

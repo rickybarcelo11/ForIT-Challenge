@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Tarea from "../components/Tarea";
+import BotonVolver from "../components/BotonVolver";
 
 const ListaTareas = () => {
   const [tareas, setTareas] = useState([]);
@@ -30,6 +31,7 @@ const ListaTareas = () => {
           <Tarea key={tarea.id} tarea={tarea} onDelete={eliminarTarea} />
         ))
       )}
+      <BotonVolver></BotonVolver>
     </div>
   );
 };

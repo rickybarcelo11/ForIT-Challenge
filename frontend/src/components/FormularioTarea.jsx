@@ -32,6 +32,7 @@ const FormularioTarea = ({ titulo, setTitulo, completada, setCompletada, onSubmi
         </div>
       </form>
     );
+    
   };
   
   export default FormularioTarea;
