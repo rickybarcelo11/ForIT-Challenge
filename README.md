@@ -87,7 +87,7 @@ Gracias por tomarse el tiempo de revisar este proyecto.
 
 ### Autor
 Ricardo Barceló
-Esperanza, Santa Fe – Argentina
-rickybarcelo11@gmail.com
-GitHub: rickybarcelo11
+- Esperanza, Santa Fe – Argentina
+- rickybarcelo11@gmail.com
+- GitHub: rickybarcelo11
 
