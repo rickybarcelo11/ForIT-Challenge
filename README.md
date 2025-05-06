@@ -28,16 +28,18 @@ Aplicación desarrollada como parte del challenge técnico de la academia **ForI
 
 ForIT-Challenge/
 ├── backend/
-│   ├── index.js
-│   └── ...
+│ └── index.js
 ├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   └── ...
+│ └── src/
+│ ├── components/
+│ └── pages/
 ├── capturas/
-├── README.md
-└── ...
+│ ├── crear-tarea.png
+│ ├── editar-tarea.png
+│ ├── eliminar-tarea.png
+│ ├── inicio.png
+│ └── lista-tareas.png
+└── README.md
 
 
 ### Cómo ejecutar el proyecto
